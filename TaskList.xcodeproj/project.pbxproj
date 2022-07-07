@@ -8,24 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		256931ED2875DEB00079D507 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256931EC2875DEB00079D507 /* AppDelegate.swift */; };
-		256931EF2875DEB00079D507 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256931EE2875DEB00079D507 /* SceneDelegate.swift */; };
-		256931F12875DEB00079D507 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256931F02875DEB00079D507 /* ViewController.swift */; };
-		256931F42875DEB00079D507 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 256931F22875DEB00079D507 /* Main.storyboard */; };
+		256931F12875DEB00079D507 /* TaskListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256931F02875DEB00079D507 /* TaskListTableViewController.swift */; };
 		256931F72875DEB00079D507 /* TaskList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 256931F52875DEB00079D507 /* TaskList.xcdatamodeld */; };
 		256931F92875DEB20079D507 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 256931F82875DEB20079D507 /* Assets.xcassets */; };
 		256931FC2875DEB20079D507 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 256931FA2875DEB20079D507 /* LaunchScreen.storyboard */; };
+		25D90B8A287725EE00CE22C8 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D90B89287725EE00CE22C8 /* StorageManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		256931E92875DEB00079D507 /* TaskList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaskList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		256931EC2875DEB00079D507 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		256931EE2875DEB00079D507 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		256931F02875DEB00079D507 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		256931F32875DEB00079D507 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		256931F02875DEB00079D507 /* TaskListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListTableViewController.swift; sourceTree = "<group>"; };
 		256931F62875DEB00079D507 /* TaskList.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TaskList.xcdatamodel; sourceTree = "<group>"; };
 		256931F82875DEB20079D507 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		256931FB2875DEB20079D507 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		256931FD2875DEB20079D507 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		25D90B89287725EE00CE22C8 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,16 +56,55 @@
 		256931EB2875DEB00079D507 /* TaskList */ = {
 			isa = PBXGroup;
 			children = (
+				25D90B8C287759DD00CE22C8 /* ViewControllers */,
+				25D90B8D287759EE00CE22C8 /* Servises */,
+				25D90B8E28775A1500CE22C8 /* Resourses */,
+				25D90B8B287759CE00CE22C8 /* App */,
+				25D90B8F28775A3E00CE22C8 /* Storyboards */,
+			);
+			path = TaskList;
+			sourceTree = "<group>";
+		};
+		25D90B8B287759CE00CE22C8 /* App */ = {
+			isa = PBXGroup;
+			children = (
 				256931EC2875DEB00079D507 /* AppDelegate.swift */,
-				256931EE2875DEB00079D507 /* SceneDelegate.swift */,
-				256931F02875DEB00079D507 /* ViewController.swift */,
-				256931F22875DEB00079D507 /* Main.storyboard */,
-				256931F82875DEB20079D507 /* Assets.xcassets */,
-				256931FA2875DEB20079D507 /* LaunchScreen.storyboard */,
 				256931FD2875DEB20079D507 /* Info.plist */,
 				256931F52875DEB00079D507 /* TaskList.xcdatamodeld */,
 			);
-			path = TaskList;
+			path = App;
+			sourceTree = "<group>";
+		};
+		25D90B8C287759DD00CE22C8 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				256931F02875DEB00079D507 /* TaskListTableViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		25D90B8D287759EE00CE22C8 /* Servises */ = {
+			isa = PBXGroup;
+			children = (
+				25D90B89287725EE00CE22C8 /* StorageManager.swift */,
+			);
+			path = Servises;
+			sourceTree = "<group>";
+		};
+		25D90B8E28775A1500CE22C8 /* Resourses */ = {
+			isa = PBXGroup;
+			children = (
+				256931F82875DEB20079D507 /* Assets.xcassets */,
+			);
+			path = Resourses;
+			sourceTree = "<group>";
+		};
+		25D90B8F28775A3E00CE22C8 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				256931FA2875DEB20079D507 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -130,7 +167,6 @@
 			files = (
 				256931FC2875DEB20079D507 /* LaunchScreen.storyboard in Resources */,
 				256931F92875DEB20079D507 /* Assets.xcassets in Resources */,
-				256931F42875DEB00079D507 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,23 +178,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				256931F72875DEB00079D507 /* TaskList.xcdatamodeld in Sources */,
-				256931F12875DEB00079D507 /* ViewController.swift in Sources */,
+				256931F12875DEB00079D507 /* TaskListTableViewController.swift in Sources */,
+				25D90B8A287725EE00CE22C8 /* StorageManager.swift in Sources */,
 				256931ED2875DEB00079D507 /* AppDelegate.swift in Sources */,
-				256931EF2875DEB00079D507 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		256931F22875DEB00079D507 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				256931F32875DEB00079D507 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		256931FA2875DEB20079D507 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -293,10 +321,10 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = DWMGJ928Y5;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = TaskList/Info.plist;
+				INFOPLIST_FILE = TaskList/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIStatusBarHidden = NO;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -308,7 +336,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -321,10 +349,10 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = DWMGJ928Y5;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = TaskList/Info.plist;
+				INFOPLIST_FILE = TaskList/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIStatusBarHidden = NO;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -336,7 +364,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
