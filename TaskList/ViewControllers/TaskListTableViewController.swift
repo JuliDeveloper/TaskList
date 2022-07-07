@@ -96,7 +96,7 @@ extension TaskListTableViewController {
     
     @objc private func addNewTask() {
         showAlertController(title: "New Task",
-                            message: "What do yoy want to do?",
+                            message: "What do you want to do?",
                             textField: "", actionFunc: saveTask)
     }
     
