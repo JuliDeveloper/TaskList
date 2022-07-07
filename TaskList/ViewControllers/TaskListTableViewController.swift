@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import CoreData
 
 protocol TaskViewControllerDelegate {
     func reloadData()
@@ -14,7 +13,7 @@ protocol TaskViewControllerDelegate {
 
 class TaskListTableViewController: UITableViewController {
     
-    private let context = StorageManager.shared.persistentContainer.viewContext
+    private let context = StorageManager.shared.context
     private var taskList: [Task] = []
     private let cellID = "taslCell"
 
@@ -29,9 +28,8 @@ class TaskListTableViewController: UITableViewController {
             blue: 255/255,
             alpha: 1
         )
-        
+        fetchListTask()
         setupNavigationBar()
-        fetchData()
     }
     
 }
@@ -65,6 +63,17 @@ extension TaskListTableViewController {
         navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance
     }
     
+    private func fetchListTask() {
+        StorageManager.shared.fetchData { result in
+            switch result {
+            case .success(let tasks):
+                taskList = tasks
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
     private func showAlertController(title: String, message: String, textField: String, actionFunc: @escaping (String) -> ()) {
         let alert = UIAlertController(title: title,
                                       message: message,
@@ -92,8 +101,7 @@ extension TaskListTableViewController {
     }
     
     private func saveTask(_ taskName: String) {
-        guard let entityDescription = NSEntityDescription.entity(forEntityName: "Task", in: context) else { return }
-        guard let task = NSManagedObject(entity: entityDescription, insertInto: context) as? Task else { return }
+        let task = Task(context: context)
         
         task.title = taskName
         taskList.append(task)
@@ -101,13 +109,7 @@ extension TaskListTableViewController {
         let cellIndex = IndexPath(row: taskList.count - 1, section: 0)
         tableView.insertRows(at: [cellIndex], with: .automatic)
         
-        if context.hasChanges {
-            do {
-                try context.save()
-            } catch let error {
-                print(error)
-            }
-        }
+        StorageManager.shared.saveContext()
     }
     
     private func editTask(_ taskName: String) {
@@ -115,24 +117,7 @@ extension TaskListTableViewController {
         taskList[indexPath.row].title = taskName
         tableView.reloadRows(at: [indexPath], with: .none)
         
-        if context.hasChanges {
-            do {
-                try context.save()
-            } catch let error {
-                print(error)
-            }
-        }
-        
-    }
-    
-    private func fetchData() {
-        let fetchRequest = Task.fetchRequest()
-        
-        do {
-            taskList = try context.fetch(fetchRequest)
-        } catch let error {
-            print("Failed to fetch data", error)
-        }
+        StorageManager.shared.saveContext()
     }
 }
 
@@ -176,20 +161,14 @@ extension TaskListTableViewController {
             tableView.deleteRows(at: [indexPath], with: .automatic)
             context.delete(task)
             
-            if context.hasChanges {
-                do {
-                    try context.save()
-                } catch let error {
-                    print(error)
-                }
-            }
+            StorageManager.shared.saveContext()
         }
     }
 }
 
 extension TaskListTableViewController: TaskViewControllerDelegate {
     func reloadData() {
-        fetchData()
+        fetchListTask()
         tableView.reloadData()
     }
 }
